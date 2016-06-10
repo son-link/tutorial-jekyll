@@ -1,0 +1,19 @@
+<footer class="uk-container uk-container-center uk-text-center">
+	<ul class="uk-subnav uk-subnav-line uk-flex-center">
+		{% if site.github_username %}
+		<li>
+			<a href="https://github.com/{{ site.github_username }}"><i class="uk-icon-github"></i> {{ site.github_username }}</a>
+		</li>
+		{% endif %}
+
+		{% if site.twitter_username %}
+		<li>
+			<a href="https://twitter.com/{{ site.twitter_username }}"><i class="uk-icon-twitter"></i> {{ site.twitter_username }}</a>
+		</li>
+		{% endif %}
+	</ul>
+	<div class="uk-panel">
+		<h2 class="footer-heading">{{ site.title }}</h2>
+		<p>{{ site.description }}</p>
+	</div>
+</footer>
