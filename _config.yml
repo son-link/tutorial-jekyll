@@ -17,3 +17,8 @@ github_username:  son-link
 
 # Build settings
 markdown: kramdown
+
+paginate: 1
+paginate_path: "page:num/"
+
+gems: [jekyll-paginate]

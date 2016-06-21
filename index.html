@@ -4,20 +4,42 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">Entradas</h1>
+    {% for post in paginator.posts %}
+		<article class="uk-article">
+			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}"><h1 class="uk-article-title">{{ post.title }}</h1></a>
+			<span class="uk-article-meta">{{ post.date | date: "%d/%m/%Y" }}</span>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+			{{ post.content | truncatewords: 50}}<br>
+			<a href="{{ post.url | prepend: site.baseurl }}">Seguir leyendo...</a><br>
+			<hr class="uk-article-divider">
+		</article>
     {% endfor %}
-  </ul>
+	{% if paginator.total_pages > 1 %}
+	<ul class="uk-pagination">
+	{% if paginator.previous_page %}
+		<li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a></li>
+	{% else %}
+		<li class="uk-disabled"><span>&laquo;</span></li>
+	{% endif %}
 
+	{% for page in (1..paginator.total_pages) %}
+		{% if page == paginator.page %}
+			<li class="uk-active"><span>{{ page }}</span></li>
+		{% elsif page == 1 %}
+			<li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+		{% else %}
+			<li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+		{% endif %}
+	{% endfor %}
+
+	{% if paginator.next_page %}
+		<li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a></li>
+	{% else %}
+		<li class="uk-disable"><span>&raquo;</span></li>
+	{% endif %}
+	</ul>
+{% endif %}
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
