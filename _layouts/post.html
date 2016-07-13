@@ -5,4 +5,35 @@ layout: default
 	<h1 class="uk-article-title">{{ page.title }}</h1>
 	<span class="uk-article-meta">{{ page.date | date: "%d/%m/%Y" }}</span>
 	{{ content }}
+	<hr class="uk-article-divider">
+	Compartir:
+	<div class="uk-button-group">
+		<a class="uk-button btn-twitter" title="Compartir en Twitter" target="_black" href="http://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.url }}"><i class="uk-icon-twitter"></i></a>
+		<a class="uk-button btn-facebook" title="Compartir en Facebook"  target="_black" href="http://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url }}"><i class="uk-icon-facebook"></i></a>
+		<a class="uk-button btn-googlep" title="Compartir en Google Plus" target="_black" href="https://plus.google.com/share?url={{ page.url | prepend: site.url }}"><i class="uk-icon-google-plus"></i></a>
+		a class="uk-button btn-whatsapp" title="Compartir en Whatsaap" href="whatsapp://send?text={{ page.url | prepend: site.url }}"><i class="uk-icon-whatsapp"></i></a>
+		<a class="uk-button btn-telegram" title="Compartir en Telegram" href="https://telegram.me/share/url?url={{ page.url | prepend: site.url | cgi_escape }}"><i class="uk-icon-paper-plane"></i></a>
+	</div>
+	<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    var disqus_config = function () {
+        this.page.url = '{{ page.url | prepend: site.baseurl| prepend: site.url }}';  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = {{ page.date | date: "%d%m%Y" }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//tutorialjekyll.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </article>

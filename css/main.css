@@ -1,0 +1,17 @@
+/* Cabecera */
+#header, #header nav, #my-id div { background: #263238;}
+#header a {color :#fff;	}
+#header li a:hover, #my-id .uk-nav li a:hover { color: #263238; background: #fff}
+
+/* Botones de compartir */
+.btn-twitter {background-color: #2196F3; color: #fff}
+.btn-twitter:hover {color: #2196F3}
+.btn-facebook {background-color: #0D47A1; color: #fff}
+.btn-facebook:hover {color: #0D47A1}
+.btn-googlep {background-color: #B71C1C; color: #fff}
+.btn-googlep:hover {color: #B71C1C}
+.btn-whatsapp {background-color: #4CAF50; color: #fff}
+.btn-whatsapp:hover {color: #4CAF50}
+.btn-telegram {background-color: #00B0FF; color: #fff}
+.btn-telegram:hover {color: #00B0FF}
+.uk-button-group a[class*="btn-"] {width: 40px;}
