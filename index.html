@@ -7,7 +7,7 @@ layout: default
   <h1 class="page-heading">Entradas</h1>
     {% for post in paginator.posts %}
 		<article class="uk-article">
-			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}"><h1 class="uk-article-title">{{ post.title }}</h1></a>
+			<a class="post-link" href="{{ post.url | prepend: site.baseurl | prepend site.url }}"><h1 class="uk-article-title">{{ post.title }}</h1></a>
 			<span class="uk-article-meta">{{ post.date | date: "%d/%m/%Y" }}</span>
 
 			{{ post.content | truncatewords: 50}}<br>
